@@ -100,12 +100,6 @@ function App() {
           <img src={logo} className="App-logo" alt="react logo" />
         </div>
         <div>
-          <p>
-            Use <code>npm start</code> then <a href={"http://localhost:3000/"}>navigate there</a> to see live updates<br />
-            Edit <code>src/App.tsx</code> and save to reload
-          </p>
-        </div>
-        <div>
           <Container><InterlockedButtons /><StringDiv stringsubscribeSignalName="11" /></Container>
           <Container><ToggleButtons /></Container>
           <Container><VolumeControl /></Container>
