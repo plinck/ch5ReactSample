@@ -1,24 +1,25 @@
 import React, { TouchEvent } from 'react';
 import { useSubscribeString, usePublishAnalog, useSubscribeAnalog } from "./components/react-ch5/react-ch5";
-import logo from './assets/logo.svg';
+import logo from './assets/images/logo.svg';
 import './App.css';
 import PushButton from './components/buttons/PushButton';
 
 const InterlockedButtons = () => (
   <>
     Interlocked:
-    <PushButton publishSignalName="21" subscribeSignalName="21" >A</PushButton>
-    <PushButton publishSignalName="22" subscribeSignalName="22" >B</PushButton>
-    <PushButton publishSignalName="23" subscribeSignalName="23" >C</PushButton>
-    <PushButton publishSignalName="24" subscribeSignalName="24" >D</PushButton>
+    <PushButton publishSignalName="11" subscribeSignalName="11" >A</PushButton>
+    <PushButton publishSignalName="12" subscribeSignalName="12" >B</PushButton>
+    <PushButton publishSignalName="13" subscribeSignalName="13" >C</PushButton>
+    <PushButton publishSignalName="14" subscribeSignalName="14" >D</PushButton>
+    <PushButton publishSignalName="15" subscribeSignalName="15" >D</PushButton>
   </>
 )
 
 const ToggleButtons = () => (
   <>
     Toggles:
-    <PushButton publishSignalName="31" subscribeSignalName="31" >1</PushButton>
-    <PushButton publishSignalName="32" subscribeSignalName="32" >2</PushButton>
+    <PushButton publishSignalName="100" subscribeSignalName="100" >1</PushButton>
+    <PushButton publishSignalName="6" subscribeSignalName="6" >2</PushButton>
   </>
 )
 
@@ -105,7 +106,7 @@ function App() {
           </p>
         </div>
         <div>
-          <Container><InterlockedButtons /><StringDiv stringsubscribeSignalName="21" /></Container>
+          <Container><InterlockedButtons /><StringDiv stringsubscribeSignalName="11" /></Container>
           <Container><ToggleButtons /></Container>
           <Container><VolumeControl /></Container>
         </div>

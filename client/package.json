@@ -1,11 +1,10 @@
 {
-  "name": "my-app",
+  "name": "ch5-react-sample",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@crestron/ch5-crcomlib": "^1.0.0",
     "@crestron/ch5-utilities-cli": "^0.1.47",
-    "@testing-library/user-event": "^10.1.0",
     "@types/classnames": "^2.2.10",
     "@types/node": "^12.12.38",
     "@types/react": "^16.9.34",
