@@ -14,34 +14,69 @@
         "actions": [{"state":"21","type":"boolean","logic":"set","value":true },
                     {"state":"22","type":"boolean","logic":"set","value":false},
                     {"state":"23","type":"boolean","logic":"set","value":false},
-                    {"state":"24","type":"boolean","logic":"set","value":false}]
+                    {"state":"24","type":"boolean","logic":"set","value":false},
+                    {
+                        "state": "21",
+                        "signal": "21",
+                        "type": "string",
+                        "logic": "set",
+                        "value": "Hit Button 21"
+                    }    
+                ]
         },
         {
-        "type": "boolean",
-        "event": "22",
-        "trigger": true,
-        "actions": [{"state":"21","type":"boolean","logic":"set","value":false },
-                    {"state":"22","type":"boolean","logic":"set","value":true},
-                    {"state":"23","type":"boolean","logic":"set","value":false},
-                    {"state":"24","type":"boolean","logic":"set","value":false}]
+            "type": "boolean",
+            "event": "22",
+            "trigger": true,
+            "actions": [
+                {"state":"21","type":"boolean","logic":"set","value":false},
+                {"state":"22","type":"boolean","logic":"set","value":true},
+                {"state":"23","type":"boolean","logic":"set","value":false},
+                {"state":"24","type":"boolean","logic":"set","value":false},
+                {
+                    "state": "21",
+                    "signal": "21",
+                    "type": "string",
+                    "logic": "set",
+                    "value": "Hit Button 22"
+                }    
+            ]
         },
         {
-        "type": "boolean",
-        "event": "23",
-        "trigger": true,
-        "actions": [{"state":"21","type":"boolean","logic":"set","value":false },
-                    {"state":"22","type":"boolean","logic":"set","value":false},
-                    {"state":"23","type":"boolean","logic":"set","value":true},
-                    {"state":"24","type":"boolean","logic":"set","value":false}]
+            "type": "boolean",
+            "event": "23",
+            "trigger": true,
+            "actions": [
+                {"state":"21","type":"boolean","logic":"set","value":false},
+                {"state":"22","type":"boolean","logic":"set","value":false},
+                {"state":"23","type":"boolean","logic":"set","value":true},
+                {"state":"24","type":"boolean","logic":"set","value":false},
+                {
+                    "state": "21",
+                    "signal": "21",
+                    "type": "string",
+                    "logic": "set",
+                    "value": "Hit Button 23"
+                }    
+            ]
         },
         {
-        "type": "boolean",
-        "event": "24",
-        "trigger": true,
-        "actions": [{"state":"21","type":"boolean","logic":"set","value":false },
-                    {"state":"22","type":"boolean","logic":"set","value":false},
-                    {"state":"23","type":"boolean","logic":"set","value":false},
-                    {"state":"24","type":"boolean","logic":"set","value":true}]
+            "type": "boolean",
+            "event": "24",
+            "trigger": true,
+            "actions": [
+                {"state":"21","type":"boolean","logic":"set","value":false},
+                {"state":"22","type":"boolean","logic":"set","value":false},
+                {"state":"23","type":"boolean","logic":"set","value":false},
+                {"state":"24","type":"boolean","logic":"set","value":true},
+                {
+                    "state": "21",
+                    "signal": "21",
+                    "type": "string",
+                    "logic": "set",
+                    "value": "Hit Button 24"
+                }    
+            ]
         },
         {
             "type": "boolean",
@@ -63,36 +98,42 @@
             "actions":[{"state":"5","type":"string","logic":"link"}]
         },
         {
-            "type": "b",
+            "type": "boolean",
             "event": "34",
             "trigger": true,
             "actions": [
+                {"state":"34","type":"boolean","logic":"toggle"},
                 {
-                    "state": "34",
-                    "type": "boolean",
-                    "logic": "toggle"
+                    "state": "36",
+                    "signal": "36",
+                    "type": "number",
+                    "logic": "increment",
+                    "offset": 1000
                 }
             ]
         },      
         {
-            "type": "b",
+            "type": "boolean",
             "event": "35",
             "trigger": true,
             "actions": [
+                {"state":"35","type":"boolean","logic":"toggle"},
                 {
-                    "state": "35",
-                    "type": "boolean",
-                    "logic": "set", "value": true
+                    "state": "36",
+                    "signal": "36",
+                    "type": "number",
+                    "logic": "decrement",
+                    "offset": 1000
                 }
             ]
         },      
         {
             "type": "n",
-            "event": "21",
+            "event": "36",
             "trigger": "&change",
             "actions": [
                 {
-                    "state": "21",
+                    "state": "36",
                     "type": "n",
                     "logic": "link"
                 }
@@ -103,6 +144,7 @@
                  {"state":"1", "type":"string", "value":"Hello World"},
                  {"state":"2", "type":"string", "value":"<span style='color: blue'><b>Dynamic</b><br/>Icon</style>"},
                  {"state":"3", "type":"string", "value":"./assets/images/logo.avg"},
-                 {"state":"4", "type":"string", "value":"Serial Join 4 text telling a long story"}
+                 {"state":"4", "type":"string", "value":"Serial Join 4 text telling a long story"},
+                 {"state":"36", "type":"number", "value":5000}
     ]
 }

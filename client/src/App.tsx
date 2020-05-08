@@ -1,6 +1,6 @@
 
 import React, { TouchEvent } from 'react';
-import { ConfigureEmulatorService, useSubscribeString, usePublishString, usePublishAnalog, useSubscribeAnalog } from "./components/react-ch5/react-ch5";
+import { ConfigureEmulatorService, useSubscribeString, usePublishAnalog, useSubscribeAnalog } from "./components/react-ch5/react-ch5";
 import logo from './assets/images/logo.svg';
 import './App.css';
 import PushButton from './components/buttons/PushButton';
@@ -30,9 +30,7 @@ type StringDivProps = {
 }
 
 const StringDiv: React.FunctionComponent<StringDivProps> = (props) => {
-  const publish = usePublishString(props.stringSendSignalName);
   const value = useSubscribeString(props.stringSubscribeSignalName);
-  console.log(value);
 
   return <div style={{ margin: '0 1rem', display: "flex", justifyContent: 'center', alignItems: 'center', border: '5px solid black', width: '20rem', height: '4rem', backgroundColor: '#aaa' }}>{value}</div>;
 }
@@ -90,7 +88,7 @@ const VolumeControl = () => (
   <>
     Volume:
     <PushButton publishSignalName="35" subscribeSignalName="35" >-</PushButton>
-    <AnalogDiv analogSendSignalName="21" analogSubscribeSignalName="21" />
+    <AnalogDiv analogSendSignalName="36" analogSubscribeSignalName="36" />
     <PushButton publishSignalName="34" subscribeSignalName="34" >+</PushButton>
   </>
 )
