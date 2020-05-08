@@ -6,7 +6,6 @@ import { Ch5Emulator } from '@crestron/ch5-crcomlib/build_bundles/umd/@types';
 // declare var d3 CrComLib how to declare a variable that exists somewhere in the JS.
 // Think of it like "Yeah, yeah typescript, quit complaining, trust me it exists".
 declare var CrComLib: typeof import('@crestron/ch5-crcomlib');
-//declare var CrComLib: any;
 
 export class ConfigService {
   ch5Emulator: Ch5Emulator;

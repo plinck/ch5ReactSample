@@ -1,11 +1,10 @@
+
 import React, { TouchEvent } from 'react';
 import { ConfigService, useSubscribeString, usePublishAnalog, useSubscribeAnalog } from "./components/react-ch5/react-ch5";
 import logo from './assets/images/logo.svg';
 import './App.css';
 import PushButton from './components/buttons/PushButton';
-import * as buttonEmulator from "./assets/data/button-emulator.json";
-
-console.log(JSON.stringify(buttonEmulator,null,2));
+import buttonEmulator from "./assets/data/button-emulator.json";
 
 const InterlockedButtons = () => (
   <>
