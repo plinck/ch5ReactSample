@@ -21,8 +21,6 @@
   "scripts": {
     "start": "npm run copylib && react-scripts start",
     "build": "npm run copylib && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "copylib": "ncp ./node_modules/@crestron/ch5-crcomlib/build_bundles/umd/cr-com-lib.js public/cr-com-lib.js",
     "serve": "serve -s build",
     "build-and-serve": "npm run build && npm run serve",
