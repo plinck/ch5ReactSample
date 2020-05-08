@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "ch5ReactSample",
+  "name": "Creston Ch5 sample with simulator using React",
   "icons": [
     {
       "src": "favicon.ico",
