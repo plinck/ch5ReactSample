@@ -6,7 +6,7 @@ This project used the cra-template-ch5-typescript starter template by Chris Pool
 
 This project has been updated to change the file structure around a but to more fit the structure I typically used.  I have also copied the react-ch5 code into my project so I can manipualet it on my own and inetgrate it based on my style.  I also got rid of yarn since I dont use it and I had issues with it messing up my gcloud CLI and firebase CLI.  Certainly ths is my issue but I am not in the mood to switch to yarn yet.
 
-This project is meant to be a way to start learning ch5 with react and typescript using simulator vs real ive env with touchpanel and processor.  This is to allow isloated leanring and testing.
+This is meant to be a way to start learning ch5 with react and typescript using simulator vs real ive env with touchpanel and processor.  This is to allow isloated learning and testing primarily using the emulator.
 
 ## Available Scripts
 

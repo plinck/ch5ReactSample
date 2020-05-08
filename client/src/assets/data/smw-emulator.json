@@ -1,0 +1,108 @@
+{
+    "cues": [
+        {
+            "type":"string",
+            "event":"21",
+            "trigger":"&change",
+            "logic":"link",
+            "actions":[{"state":"21","type":"string","logic":"link"}]
+        },
+        {
+        "type": "boolean",
+        "event": "21",
+        "trigger": true,
+        "actions": [{"state":"21","type":"boolean","logic":"set","value":true },
+                    {"state":"22","type":"boolean","logic":"set","value":false},
+                    {"state":"23","type":"boolean","logic":"set","value":false},
+                    {"state":"24","type":"boolean","logic":"set","value":false}]
+        },
+        {
+        "type": "boolean",
+        "event": "22",
+        "trigger": true,
+        "actions": [{"state":"21","type":"boolean","logic":"set","value":false },
+                    {"state":"22","type":"boolean","logic":"set","value":true},
+                    {"state":"23","type":"boolean","logic":"set","value":false},
+                    {"state":"24","type":"boolean","logic":"set","value":false}]
+        },
+        {
+        "type": "boolean",
+        "event": "23",
+        "trigger": true,
+        "actions": [{"state":"21","type":"boolean","logic":"set","value":false },
+                    {"state":"22","type":"boolean","logic":"set","value":false},
+                    {"state":"23","type":"boolean","logic":"set","value":true},
+                    {"state":"24","type":"boolean","logic":"set","value":false}]
+        },
+        {
+        "type": "boolean",
+        "event": "24",
+        "trigger": true,
+        "actions": [{"state":"21","type":"boolean","logic":"set","value":false },
+                    {"state":"22","type":"boolean","logic":"set","value":false},
+                    {"state":"23","type":"boolean","logic":"set","value":false},
+                    {"state":"24","type":"boolean","logic":"set","value":true}]
+        },
+        {
+            "type": "boolean",
+            "event": "31",
+            "trigger": true,
+            "actions": [{"state":"31","type":"boolean", "logic": "toggle" }]
+        },
+        {
+            "type": "boolean",
+            "event": "32",
+            "trigger": true,
+            "actions": [{"state":"32", "type": "boolean", "logic": "toggle"}]
+        },
+        {
+            "type":"string",
+            "event":"5",
+            "trigger":"&change",
+            "logic":"link",
+            "actions":[{"state":"5","type":"string","logic":"link"}]
+        },
+        {
+            "type": "b",
+            "event": "34",
+            "trigger": true,
+            "actions": [
+                {
+                    "state": "34",
+                    "type": "boolean",
+                    "logic": "toggle"
+                }
+            ]
+        },      
+        {
+            "type": "b",
+            "event": "35",
+            "trigger": true,
+            "actions": [
+                {
+                    "state": "35",
+                    "type": "boolean",
+                    "logic": "set", "value": true
+                }
+            ]
+        },      
+        {
+            "type": "n",
+            "event": "21",
+            "trigger": "&change",
+            "actions": [
+                {
+                    "state": "21",
+                    "type": "n",
+                    "logic": "link"
+                }
+            ]
+        }
+    ],
+    "onStart": [ {"state": "21", "type":"boolean", "value":true },
+                 {"state":"1", "type":"string", "value":"Hello World"},
+                 {"state":"2", "type":"string", "value":"<span style='color: blue'><b>Dynamic</b><br/>Icon</style>"},
+                 {"state":"3", "type":"string", "value":"./assets/images/logo.avg"},
+                 {"state":"4", "type":"string", "value":"Serial Join 4 text telling a long story"}
+    ]
+}

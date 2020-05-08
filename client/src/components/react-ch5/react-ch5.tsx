@@ -7,12 +7,13 @@ import { Ch5Emulator } from '@crestron/ch5-crcomlib/build_bundles/umd/@types';
 // Think of it like "Yeah, yeah typescript, quit complaining, trust me it exists".
 declare var CrComLib: typeof import('@crestron/ch5-crcomlib');
 
-export class ConfigService {
+// This class iis used to initilaize the emulator using JSON files.
+export class ConfigureEmulatorService {
   ch5Emulator: Ch5Emulator;
 
   constructor() {
     this.ch5Emulator = CrComLib.Ch5Emulator.getInstance();
-   }
+  }
 
   // init emulator
   public initEmulator(emulator:any) {
