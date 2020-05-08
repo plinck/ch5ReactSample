@@ -1,10 +1,28 @@
 // react-ch5 - Copyright 2020 Chris Poole, AVSP Ltd
 import { useState, useEffect } from 'react';
+import { Ch5Emulator } from '@crestron/ch5-crcomlib/build_bundles/umd/@types';
 
 // declare the global CrComLib object 
 // declare var d3 CrComLib how to declare a variable that exists somewhere in the JS.
 // Think of it like "Yeah, yeah typescript, quit complaining, trust me it exists".
 declare var CrComLib: typeof import('@crestron/ch5-crcomlib');
+//declare var CrComLib: any;
+
+export class ConfigService {
+  ch5Emulator: Ch5Emulator;
+
+  constructor() {
+    this.ch5Emulator = CrComLib.Ch5Emulator.getInstance();
+   }
+
+  // init emulator
+  public initEmulator(emulator:any) {
+    CrComLib.Ch5Emulator.clear();
+    this.ch5Emulator = CrComLib.Ch5Emulator.getInstance();
+    this.ch5Emulator.loadScenario(emulator);
+    this.ch5Emulator.run();
+  }
+}
 
 export const useSubscribeDigital = (signalName:string) => {
   const [feedback, setFeedback] = useState(false);

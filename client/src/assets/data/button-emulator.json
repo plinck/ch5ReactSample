@@ -1,6 +1,5 @@
 {
     "cues": [
-        // Interlock
         {
         "type": "boolean",
         "event": "11",
@@ -51,8 +50,6 @@
                     {"state":"14","type":"boolean","logic":"set","value":false},
                     {"state":"15","type":"boolean","logic":"set","value":true}]
         },
-        // Interlock End
-        // buttons/toggles
         {
         "type": "boolean",
         "event": "100",
@@ -66,5 +63,7 @@
         "actions": [{"state":"6", "type": "boolean", "logic": "toggle"}]
         }
     ],
-    "onStart": [ { "state": "11", "type":"boolean", "value":true } ]
+    "onStart": [
+        { "state": "11", "type":"boolean", "value":true }
+    ]
 }
