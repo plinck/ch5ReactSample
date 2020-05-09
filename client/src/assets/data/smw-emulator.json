@@ -102,7 +102,7 @@
             "event": "34",
             "trigger": true,
             "actions": [
-                {"state":"34","type":"boolean","logic":"toggle"},
+                {"state":"34","type":"boolean","logic":"pulse"},
                 {
                     "state": "36",
                     "signal": "36",
@@ -117,7 +117,7 @@
             "event": "35",
             "trigger": true,
             "actions": [
-                {"state":"35","type":"boolean","logic":"toggle"},
+                {"state":"35","type":"boolean","logic":"pulse"},
                 {
                     "state": "36",
                     "signal": "36",
