@@ -24,6 +24,10 @@ export class ConfigureEmulatorService {
   }
 }
 
+export const pushDigital = (signalName:string, value: boolean) => {
+  return CrComLib.publishEvent('boolean', signalName, value);
+}
+
 export const useSubscribeDigital = (signalName:string) => {
   const [feedback, setFeedback] = useState(false);
 
