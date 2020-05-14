@@ -91,6 +91,12 @@
             "actions": [{"state":"32", "type": "boolean", "logic": "toggle"}]
         },
         {
+            "type": "boolean",
+            "event": "33",
+            "trigger": true,
+            "actions": [{"state":"33", "type": "boolean", "logic": "toggle"}]
+        },
+        {
             "type":"string",
             "event":"5",
             "trigger":"&change",

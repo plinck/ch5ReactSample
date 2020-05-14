@@ -1,12 +1,9 @@
 import * as React from 'react';
 import Button from '@material-ui/core/Button';
-import { pushDigital, useSubscribeDigital } from "../react-ch5/react-ch5";
-import { withStyles, Theme } from '@material-ui/core/styles';
 import classnames from 'classnames';
+import styles from './ButtonCR.module.scss';
+declare var CrComLib: typeof import('@crestron/ch5-crcomlib');
 
-interface IProps {
-  classes: any;
-}
 interface IButtonCRProps {
   publishSignalName: string,
   subscribeSignalName: string
@@ -14,75 +11,89 @@ interface IButtonCRProps {
 
 interface IState {
   feedback: boolean;
+  subscriptionId: string;
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-      [theme.breakpoints.up('md')]: {
-          marginLeft: "57px",
-      },
-      paddingTop: "10px"
-  },
-  buttonOn: {
-    color: "#fff",
-    backgroundColor: "#22f"
-  },
-  buttonOff: {
-    color: "#fff",
-    backgroundColor: "#118"
-  }
-});
+class ButtonCR extends React.Component<any, IState> {
 
-class ButtonCR extends React.Component<IProps, IButtonCRProps, IState> {
-
-  constructor(props) {
+  constructor(props:any) {
     super(props);
 
     this.state = {
-      feedback: false
+      feedback: false,
+      subscriptionId: ""
     }
+
+    this.receiveFeedback = this.receiveFeedback.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
+    this.componentDidUpdate = this.componentDidUpdate.bind(this)
+    this.onPress = this.onPress.bind(this)
+    this.onRelease = this.onRelease.bind(this)
   }
 
-  componentDidMount() {
-    const feedback = useSubscribeDigital(this.props.subscribeSignalName);
+  receiveFeedback(feedback: boolean) {
+    console.log(`received feedback: ${feedback}`);
     this.setState({feedback: feedback});
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidMount() {
+    const subscriptionId = CrComLib.subscribeState('boolean', this.props.subscribeSignalName, this.receiveFeedback);
+    this.setState({subscriptionId: subscriptionId});
+  }
 
+  componentDidUpdate(prevProps:any) {
+    if (this.props.subscribeSignalName !== prevProps.subscribeSignalName) {
+      if (this.state.subscriptionId && this.state.subscriptionId !== "") {
+        CrComLib.unsubscribeState('boolean', prevProps.subscribeSignalName, this.state.subscriptionId);
+      }
+      const subscriptionId = CrComLib.subscribeState('boolean', this.props.subscribeSignalName, this.receiveFeedback);
+      this.setState({subscriptionId: subscriptionId});
+    }
+  }
+
+  componentDidUnMount() {
+    if (this.props.subscribeSignalName) {
+      if (this.state.subscriptionId && this.state.subscriptionId !== "") {
+        CrComLib.unsubscribeState('boolean', this.props.subscribeSignalName, this.state.subscriptionId);
+      }
+    }
   }
 
   private onPress() {
-    pushDigital(this.props.publishSignalName, true);
+    console.log(`clicked/pressed, props: ${JSON.stringify(this.props, null,2)}`);
+    CrComLib.publishEvent('boolean', this.props.publishSignalName, true);
   }
-
+  
   private onRelease = () => {
-    pushDigital(this.props.publishSignalName, false);
+    // console.log(`released signal: ${this.props.publishSignalName}`);
+    // CrComLib.publishEvent('boolean', this.props.publishSignalName, false);
   }
 
-  public render() {
-    const { classes } = this.props;
-    
+  public render() {    
     const feedback = this.state.feedback;
     console.log(`feedback: ${feedback}`);
 
-    const className = classnames(feedback ? classes.buttonOn : classes.buttonOff );
+    // This is a total hack since I do not know how to pass stype props from parent properly - need mor react help
+    const allClasses = this.props;
+    let classes: any = {};
+    Object.keys(allClasses).forEach((key: Extract<keyof typeof allClasses, string>) => {
+      if (key !=="children" && key !=="publishSignalName" && key !=="subscribeSignalName") {
+        const value:string = allClasses[key];
+        classes[key] = value;
+      }
+    })
+    
+    const className = classnames(styles.default, feedback ? styles.bottonOn : styles.buttonOff );
 
     return (
-      <Button
+      <Button {...classes} color={feedback ? "primary" : "secondary"}
         className={className}
         onClick={this.onPress}
-        onMouseDown={this.onPress}
-        onMouseUp={this.onRelease}
-        onTouchStart={this.onPress}
-        onTouchEnd={this.onRelease}
-        onTouchCancel={this.onRelease}>
-          <div style={{ margin: 'auto' }}>
-            {this.props.children}
-          </div>
+        >
+          {this.props.children}
       </Button>
     );
   }
 }
 
-export default withStyles(styles)(ButtonCR);
+export default ButtonCR;
