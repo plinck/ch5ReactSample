@@ -14,6 +14,8 @@ interface IState {
   subscriptionId: string;
 }
 
+// I had to use <any> type since I am getting props from parent and 
+// cant specify ALL the properties coming from Material UI Button
 class ButtonCR extends React.Component<any, IState> {
 
   constructor(props:any) {
