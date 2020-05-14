@@ -75,18 +75,18 @@ class ButtonCR extends React.Component<any, IState> {
 
     // This is a total hack since I do not know how to pass stype props from parent properly - need mor react help
     const allClasses = this.props;
-    let classes: any = {};
+    let parentClasses: any = {};
     Object.keys(allClasses).forEach((key: Extract<keyof typeof allClasses, string>) => {
       if (key !=="children" && key !=="publishSignalName" && key !=="subscribeSignalName") {
         const value:string = allClasses[key];
-        classes[key] = value;
+        parentClasses[key] = value;
       }
     })
     
     const className = classnames(styles.default, feedback ? styles.bottonOn : styles.buttonOff );
 
     return (
-      <Button {...classes} color={feedback ? "primary" : "secondary"}
+      <Button {...parentClasses} color={feedback ? "primary" : "secondary"}
         className={className}
         onClick={this.onPress}
         >
