@@ -2,6 +2,7 @@ import React, { TouchEvent } from 'react';
 import { useSubscribeString, usePublishAnalog, useSubscribeAnalog } from "../react-ch5/react-ch5";
 import PushButton from '../buttons/PushButton';
 import ButtonCR from '../buttons/ButtonCR';
+import ButtonCH from '../buttons/ButtonCH';
 
 const InterlockedButtons = () => (
     <div>
@@ -92,6 +93,7 @@ class Dashboard extends React.Component {
             <ToggleButtons />
             <VolumeControl />
             <ButtonCR variant="contained" publishSignalName="32" subscribeSignalName="32" >32</ButtonCR>
+            <ButtonCH variant="contained"  style={{height: '8rem'}} publishSignalName="32" subscribeSignalName="32" >32</ButtonCH>
             <StringDiv stringSendSignalName="1" stringSubscribeSignalName="1" />
             <StringDiv stringSendSignalName="2" stringSubscribeSignalName="2" />
             <StringDiv stringSendSignalName="3" stringSubscribeSignalName="3" />
