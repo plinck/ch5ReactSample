@@ -59,10 +59,10 @@ const ButtonCH: React.FC<Props> = (props) => {
         CrComLib.publishEvent('boolean', signalName, true);
     }
     
-    const onRelease = () => {
-        console.log(`released signal: ${publishSignalName}`);
-        // CrComLib.publishEvent('boolean', this.props.publishSignalName, false);
-    }
+    // const onRelease = () => {
+    //     console.log(`released signal: ${publishSignalName}`);
+    //     // CrComLib.publishEvent('boolean', this.props.publishSignalName, false);
+    // }
     
     useEffect(() => {
         let subscriptionId: string = "";
