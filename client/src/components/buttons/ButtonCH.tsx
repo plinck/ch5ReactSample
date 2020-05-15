@@ -40,22 +40,22 @@ interface OwnProps {
 type PublicProps = OwnProps & ButtonProps;
 type Props = PublicProps & WithStyles<typeof styles>;
 
-const ButtonCH: React.FC<Props> = (props) => {
-    console.log(`props: ${JSON.stringify(props, null,2)}`);
-    
+const ButtonCH: React.FC<Props> = (props) => {    
     // decontruct props  - 
-    // styles HOC
-    const {classes} = props;
-    // passed OwnProps
-    const {publishSignalName, subscribeSignalName, style, styleOn, styleOff} = props;
-    // rest of props past from parent
-    const {...rest} = props;
+    // styles HOC, OwnProps, parent props passed
+    const {classes,
+        publishSignalName,
+        subscribeSignalName,
+        style,
+        styleOn,
+        styleOff,
+        ...rest             // gets all the est of the props not specified above (we dont have all the names)
+    } = props;
 
     // State
     const [feedback, setFeedback] = useState(false);
 
     const onPress = (signalName: string) => {
-        console.log(`clicked/pressed, props: ${JSON.stringify(props, null,2)}`);
         CrComLib.publishEvent('boolean', signalName, true);
     }
     
@@ -69,7 +69,6 @@ const ButtonCH: React.FC<Props> = (props) => {
         if (subscribeSignalName) {
             subscriptionId = CrComLib.subscribeState('boolean', subscribeSignalName, setFeedback);
         }
-          
         // When it ends
         return () => {
             CrComLib.unsubscribeState('boolean', subscribeSignalName, subscriptionId);
