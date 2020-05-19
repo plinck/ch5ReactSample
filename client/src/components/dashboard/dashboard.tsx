@@ -3,6 +3,7 @@ import { useSubscribeString, usePublishAnalog, useSubscribeAnalog } from "../rea
 import PushButton from '../buttons/PushButton';
 import ButtonCR from '../buttons/ButtonCR';
 import ButtonCH from '../buttons/ButtonCH';
+import Ch5Button from '../buttons/Ch5Button';
 
 const InterlockedButtons = () => (
     <div>
@@ -94,6 +95,7 @@ class Dashboard extends React.Component {
             <VolumeControl />
             <ButtonCR variant="contained" publishSignalName="32" subscribeSignalName="32" >32</ButtonCR>
             <ButtonCH variant="contained"  style={{height: '8rem'}} publishSignalName="32" subscribeSignalName="32" >32</ButtonCH>
+            <Ch5Button variant="contained"  style={{height: '8rem'}} publishSignalName="32" subscribeSignalName="32" >32</Ch5Button>
             <StringDiv stringSendSignalName="1" stringSubscribeSignalName="1" />
             <StringDiv stringSendSignalName="2" stringSubscribeSignalName="2" />
             <StringDiv stringSendSignalName="3" stringSubscribeSignalName="3" />
