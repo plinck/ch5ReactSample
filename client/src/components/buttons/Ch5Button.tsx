@@ -82,6 +82,8 @@ const Ch5Button: React.FC<Props> = (props) => {
     const ch5Button = new CrComLib.Ch5Button();
     console.log("ch5Button");
     console.log(ch5Button);
+    ch5Button.label = "CH5ButtonLabel";
+    ch5Button.type = "primary";
 
     // const className={allstyles.join(" ")}
     // feedback is fro state, all else is from props
