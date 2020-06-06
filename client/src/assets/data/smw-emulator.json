@@ -151,6 +151,6 @@
                  {"state":"2", "type":"string", "value":"<span style='color: blue'><b>Dynamic</b><br/>Icon</style>"},
                  {"state":"3", "type":"string", "value":"./assets/images/logo.avg"},
                  {"state":"4", "type":"string", "value":"Serial Join 4 text telling a long story"},
-                 {"state":"36", "type":"number", "value":5000}
+                 {"state":"36", "type":"number", "value":20000}
     ]
 }
