@@ -4,7 +4,7 @@ import { ClassValue } from 'classnames/types';
 import { StyleRules } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
+import Slider, { SliderProps } from '@material-ui/core/Slider';
 import Button, { ButtonProps } from "@material-ui/core/Button";
 import VolumeDown from '@material-ui/icons/VolumeDown';
 import VolumeUp from '@material-ui/icons/VolumeUp';
@@ -33,7 +33,7 @@ interface OwnProps {
     styleOff?: ClassValue;  
 }
 // Exposed to user's of component - not styles
-type PublicProps = OwnProps & ButtonProps;
+type PublicProps = OwnProps & ButtonProps & SliderProps;
 type Props = PublicProps & WithStyles<typeof styles>;
 
 
