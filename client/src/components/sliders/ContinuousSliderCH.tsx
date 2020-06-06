@@ -50,7 +50,6 @@ const ContinuousSliderCH: React.FC<Props> = (props) => {
     } = props;
 
     // State
-    const [value, setValue] = useState(1000);
     const [sliderValue, setSliderValue] = useState(30);
 
     // Keep range 0-100%
@@ -66,11 +65,10 @@ const ContinuousSliderCH: React.FC<Props> = (props) => {
         
         console.log(`setRangeSlider: value ${newValue}. percent value ${newPercentValue}`);
         setSliderValue(newPercentValue);
-        setValue(newValue);
     }
       
     // const handleChange = (event: React.ChangeEvent<{}>, signalName: string, newValue: number) => {
-    const handleChange = (signalName: string, percent: number) => {
+    const handleChange = (event: React.ChangeEvent<{}>, signalName: string, percent: number) => {
         // convert to MINPERCENT MAXPERCENT range for crestron
         let newPercentValue = percent;
         if (newPercentValue < MINPERCENT) {
@@ -81,9 +79,15 @@ const ContinuousSliderCH: React.FC<Props> = (props) => {
         let newValue = Math.round((newPercentValue /100)*(MAXVALUE-MINVALUE));
         console.log(`handleChange: ${signalName}, value ${newValue}. percent value ${newPercentValue}`);
 
-        setSliderValue(newPercentValue);
+        setSliderValue(percent);
         CrComLib.publishEvent('number', signalName, newValue);
     };
+
+    const handleRawChange = ( event: React.ChangeEvent<{}>, signalName: string, newValue: number) => {
+        // console.log(`handleRawChange: value ${newValue}`);
+        setSliderValue(newValue);
+    };
+    
 
     const handleClick = (signalName: string, percent: number) => {     
         // convert to MINPERCENT MAXPERCENT range for crestron
@@ -127,12 +131,21 @@ const ContinuousSliderCH: React.FC<Props> = (props) => {
                     </Button>
                 </Grid>
                 <Grid item xs>
-                <Slider value={sliderValue} min={MINPERCENT} max={MAXPERCENT} onChange={() => handleChange(publishSignalName, sliderValue)} aria-labelledby="continuous-slider" />
-                </Grid>
+                    <Slider value={sliderValue}
+                        min={MINPERCENT}
+                        max={MAXPERCENT}
+                        onChange={(e, val) => handleRawChange(e, publishSignalName, val as number)} 
+                        onChangeCommitted={(e, val) => handleChange(e, publishSignalName, val as number)}
+                        aria-labelledby="continuous-slider" 
+                    />                
+                    </Grid>
                 <Grid item>
-                <Button value={sliderValue} onClick={() => handleClick(publishSignalName, sliderValue + 1)}>
-                        <VolumeUp />
-                    </Button>
+                <Button 
+                    value={sliderValue}
+                    onClick={() => handleClick(publishSignalName, sliderValue + 1)}
+                    >
+                    <VolumeUp />
+                </Button>
                 </Grid>
             </Grid>
         </div>
