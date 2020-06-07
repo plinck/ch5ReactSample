@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ConfigureEmulatorService } from "./components/react-ch5/react-ch5";
+import { ConfigureEmulatorService } from "./components/common/react-ch5/react-ch5";
 import './App.css';
 import smwEmulator from "./assets/data/smw-emulator.json";
 import Dashboard from './components/dashboard/dashboard';

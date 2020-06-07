@@ -1,8 +1,8 @@
 import React from 'react';
-import { useSubscribeString } from "../react-ch5/react-ch5";
-import PushButton from '../buttons/PushButton';
-import ButtonCH from '../buttons/ButtonCH';
-import ContinuousSliderCH from '../sliders/ContinuousSliderCH';
+import { useSubscribeString } from "../common/react-ch5/react-ch5";
+import PushButton from '../common/buttons/PushButton';
+import ButtonCH from '../common/buttons/ButtonCH';
+import ContinuousSliderCH from '../common/sliders/ContinuousSliderCH';
 
 const InterlockedButtons = () => (
     <div>
