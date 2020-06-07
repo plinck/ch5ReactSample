@@ -129,7 +129,9 @@ const ContinuousSliderCH: React.FC<Props> = (props) => {
                         onChange={(e, val) => handleRawChange(e, publishSignalName, val as number)} 
                         onChangeCommitted={(e, val) => handleChange(e, publishSignalName, val as number)}
                         aria-labelledby="continuous-slider" 
-                    />                
+                    >
+                        {rest.children}
+                    </Slider>               
                     </Grid>
                 <Grid item>
                 <Button 

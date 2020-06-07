@@ -1,49 +1,81 @@
 import React from 'react';
-import { useSubscribeString } from "../common/react-ch5/react-ch5";
-import PushButton from '../common/buttons/PushButton';
 import ButtonCH from '../common/buttons/ButtonCH';
 import ContinuousSliderCH from '../common/sliders/ContinuousSliderCH';
-
-const InterlockedButtons = () => (
-    <div>
-    <PushButton publishSignalName="21" subscribeSignalName="21" >A-21</PushButton>
-    <PushButton publishSignalName="22" subscribeSignalName="22" >B-22</PushButton>
-    <PushButton publishSignalName="23" subscribeSignalName="23" >C-23</PushButton>
-    <PushButton publishSignalName="24" subscribeSignalName="24" >D-24</PushButton>
-    </div>
-)
-
-const ToggleButtons = () => (
-    <>
-    Toggles:
-    <PushButton publishSignalName="31" subscribeSignalName="31" >31</PushButton>
-    <PushButton publishSignalName="32" subscribeSignalName="32" >32</PushButton>
-    </>
-)
-
-type StringDivProps = {
-    stringSendSignalName: string,
-    stringSubscribeSignalName: string,
-}
-
-const StringDiv: React.FunctionComponent<StringDivProps> = (props) => {
-    const value = useSubscribeString(props.stringSubscribeSignalName);
-
-    return <div style={{ margin: '0 1rem', display: "flex", justifyContent: 'center', alignItems: 'center', border: '5px solid black', width: '20rem', height: '4rem', backgroundColor: '#aaa' }}>{value}</div>;
-}
+import TextFieldCH from '../common/strings/TextFieldCH';
 
 class Dashboard extends React.Component {
   public render() {
     return (
         <div>
-            <InterlockedButtons /><StringDiv stringSendSignalName="21" stringSubscribeSignalName="21" />
-            <ToggleButtons />
-            <ButtonCH variant="contained"  style={{height: '8rem'}} publishSignalName="32" subscribeSignalName="32" >32</ButtonCH>
-            <ContinuousSliderCH orientation="horizontal" publishSignalName="36" subscribeSignalName="36"></ContinuousSliderCH>
-            <StringDiv stringSendSignalName="1" stringSubscribeSignalName="1" />
-            <StringDiv stringSendSignalName="2" stringSubscribeSignalName="2" />
-            <StringDiv stringSendSignalName="3" stringSubscribeSignalName="3" />
-            <StringDiv stringSendSignalName="4" stringSubscribeSignalName="4" />
+            <div>Interlock:
+                <ButtonCH publishSignalName="21" subscribeSignalName="21" >A-21</ButtonCH>
+                <ButtonCH publishSignalName="22" subscribeSignalName="22" >B-22</ButtonCH>
+                <ButtonCH publishSignalName="23" subscribeSignalName="23" >C-23</ButtonCH>
+                <ButtonCH publishSignalName="24" subscribeSignalName="24" >D-24</ButtonCH>
+                <TextFieldCH publishSignalName="21" subscribeSignalName="21" />
+            </div>
+            <div>Toggle:
+                <ButtonCH publishSignalName="31" subscribeSignalName="31" >31</ButtonCH>
+                <ButtonCH publishSignalName="32" subscribeSignalName="32" >32</ButtonCH>
+            </div>
+            <TextFieldCH 
+                label="Text Field"
+                placeholder="Field Value"
+                variant="outlined"
+                autoComplete="text"
+                margin="normal"    
+                inputProps={{style: { padding: 18 }}}
+                style={{height: '8rem'}}
+                publishSignalName="5"
+                subscribeSignalName="5" >
+            </TextFieldCH>
+            <TextFieldCH 
+                label="Text Field"
+                placeholder="Field Value"
+                variant="outlined"
+                autoComplete="text"
+                margin="normal"    
+                inputProps={{style: { padding: 18 }}}
+                style={{height: '8rem'}}
+                publishSignalName="1"
+                subscribeSignalName="1" >
+            </TextFieldCH>
+            <TextFieldCH 
+                label="Text Field"
+                placeholder="Field Value"
+                variant="outlined"
+                autoComplete="text"
+                margin="normal"    
+                inputProps={{style: { padding: 18 }}}
+                style={{height: '8rem'}}
+                publishSignalName="2"
+                subscribeSignalName="2" >
+            </TextFieldCH>
+            <TextFieldCH 
+                label="Text Field"
+                placeholder="Field Value"
+                variant="outlined"
+                autoComplete="text"
+                margin="normal"    
+                inputProps={{style: { padding: 18 }}}
+                style={{height: '8rem'}}
+                publishSignalName="3"
+                subscribeSignalName="3" >
+            </TextFieldCH>
+            <TextFieldCH 
+                label="Text Field"
+                placeholder="Field Value"
+                variant="outlined"
+                autoComplete="text"
+                margin="normal"    
+                inputProps={{style: { padding: 18 }}}
+                style={{height: '8rem'}}
+                publishSignalName="3"
+                subscribeSignalName="3" >
+            </TextFieldCH>
+            <div>Slider/Analog
+                <ContinuousSliderCH orientation="horizontal" publishSignalName="36" subscribeSignalName="36"></ContinuousSliderCH>
+            </div>
         </div>
     );
   }

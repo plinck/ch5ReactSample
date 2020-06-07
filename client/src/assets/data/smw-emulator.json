@@ -104,6 +104,13 @@
             "actions":[{"state":"5","type":"string","logic":"link"}]
         },
         {
+            "type":"string",
+            "event":"1",
+            "trigger":"&change",
+            "logic":"link",
+            "actions":[{"state":"1","type":"string","logic":"link"}]
+        },
+        {
             "type": "boolean",
             "event": "34",
             "trigger": true,
