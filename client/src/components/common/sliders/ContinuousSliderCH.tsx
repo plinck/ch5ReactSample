@@ -5,12 +5,12 @@ import { StyleRules } from "@material-ui/core/styles";
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Slider, { SliderProps } from '@material-ui/core/Slider';
-import Button, { ButtonProps } from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button";
 import VolumeDown from '@material-ui/icons/VolumeDown';
 import VolumeUp from '@material-ui/icons/VolumeUp';
 
 declare var CrComLib: typeof import('@crestron/ch5-crcomlib');
-const WIDTH = 400;
+const WIDTH = 250;
 const MINPERCENT = 0;
 const MAXPERCENT = 100;
 const MINVALUE = 0;
@@ -29,11 +29,9 @@ interface OwnProps {
     publishSignalName: string,
     subscribeSignalName: string,
     style?: ClassValue;
-    styleOn?: ClassValue;
-    styleOff?: ClassValue;  
 }
 // Exposed to user's of component - not styles
-type PublicProps = OwnProps & ButtonProps & SliderProps;
+type PublicProps = OwnProps & SliderProps;
 type Props = PublicProps & WithStyles<typeof styles>;
 
 
@@ -44,8 +42,6 @@ const ContinuousSliderCH: React.FC<Props> = (props) => {
         publishSignalName,
         subscribeSignalName,
         style,
-        styleOn,
-        styleOff,
         ...rest             // gets all the est of the props not specified above (we dont have all the names)
     } = props;
 
@@ -115,10 +111,6 @@ const ContinuousSliderCH: React.FC<Props> = (props) => {
         }
     }, [subscribeSignalName]);
         
-    
-    const onStyle = styleOn ? styleOn : classes.on;
-    const offStyle = styleOff ? styleOff : classes.off;
-
     return (
         <div className={classes.root}>
             <Typography id="continuous-slider" gutterBottom>
@@ -131,7 +123,7 @@ const ContinuousSliderCH: React.FC<Props> = (props) => {
                     </Button>
                 </Grid>
                 <Grid item xs>
-                    <Slider value={sliderValue}
+                    <Slider {...rest} className={` ${style}`} value={sliderValue}
                         min={MINPERCENT}
                         max={MAXPERCENT}
                         onChange={(e, val) => handleRawChange(e, publishSignalName, val as number)} 

@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
             <InterlockedButtons /><StringDiv stringSendSignalName="21" stringSubscribeSignalName="21" />
             <ToggleButtons />
             <ButtonCH variant="contained"  style={{height: '8rem'}} publishSignalName="32" subscribeSignalName="32" >32</ButtonCH>
-            <ContinuousSliderCH publishSignalName="36" subscribeSignalName="36"></ContinuousSliderCH>
+            <ContinuousSliderCH orientation="horizontal" publishSignalName="36" subscribeSignalName="36"></ContinuousSliderCH>
             <StringDiv stringSendSignalName="1" stringSubscribeSignalName="1" />
             <StringDiv stringSendSignalName="2" stringSubscribeSignalName="2" />
             <StringDiv stringSendSignalName="3" stringSubscribeSignalName="3" />
